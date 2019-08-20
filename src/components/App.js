@@ -22,6 +22,7 @@ class App extends Component {
     return (
       <div className="App">
         <Modal alerts={alerts} />
+        This is my app!
       </div>
     )
   }
