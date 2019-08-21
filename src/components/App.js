@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Modal from './modal/Modal'
 
-const API = ''
+const API = 'https://api.github.com/gists/86ad06a3774e548d2468b740cb8b0eeb'
 
 class App extends Component {
   state = {
@@ -11,9 +11,14 @@ class App extends Component {
   }
 
   componentDidMount() {
+    this.callApi()
   }
 
   callApi() {
+    return fetch(API).then(res => {
+      console.log('RES', res)
+      return res.json()
+    })
   }
 
   render() {
