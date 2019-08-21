@@ -23,7 +23,6 @@ const parseMarkdown = markdown => {
       console.log(`Error 422: Not an alert`)
     }
   }
-  console.log('ALERTS', alerts)
   alerts.sort((a,b) => new Date(b.date) - new Date(a.date))
   return alerts
 }

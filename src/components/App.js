@@ -17,13 +17,12 @@ class App extends Component {
 
   callApi() {
     return fetch(API)
-            .then(res => {
-              console.log('RES', res)
-              return res.json()
-            })
+            .then(res => res.json())
             .then(markdown => {
-              console.log(markdown.files["changelog.md"].content)
-              return parseMarkdown(markdown.files["changelog.md"].content)
+              const alerts = parseMarkdown(markdown.files["changelog.md"].content)
+              this.setState({
+                alerts: alerts
+              })
             })
   }
 
