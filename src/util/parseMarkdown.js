@@ -24,6 +24,7 @@ const parseMarkdown = markdown => {
     }
   }
   alerts.sort((a,b) => new Date(b.date) - new Date(a.date))
+  console.log('ALERTS', alerts)
   return alerts
 }
 

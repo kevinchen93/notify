@@ -7,7 +7,7 @@ class Modal extends Component {
 
   render() {
     return(
-      <div></div>
+      <div>Modal component { this.props.alerts }</div>
     )
   }
 }
