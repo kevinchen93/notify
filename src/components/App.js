@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 
 import Modal from './modal/Modal'
 import { requestAlerts } from '../actions/alert_actions'
@@ -15,7 +16,7 @@ class App extends Component {
 
   render() {
     const { alerts } = this.state 
-    console.log(alerts)
+    console.log('REDUX', alerts)
     return (
       <div className="App">
         <Modal alerts={alerts} />
@@ -25,4 +26,8 @@ class App extends Component {
   }
 }
 
-export default App
+const mapStateToProps = state => ({
+  alerts: state.alerts
+})
+
+export default connect(mapStateToProps, null)(App)

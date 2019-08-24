@@ -1,4 +1,4 @@
-import images from '../assets/sample-images.json'
+const images = require('../assets/sample-images.json')
 
 const parseMarkdown = markdown => {
   const markdownArray = markdown.split('\n')
@@ -28,4 +28,4 @@ const parseMarkdown = markdown => {
   return alerts
 }
 
-export default parseMarkdown
+module.exports = parseMarkdown
