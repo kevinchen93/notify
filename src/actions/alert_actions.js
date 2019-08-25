@@ -4,6 +4,7 @@ export const RECEIVE_ALERTS = 'RECEIVE_ALERTS'
 
 // Regular actions
 export const receiveAlerts = alerts => {
+  console.log('ALERTS', alerts)
   return {
     type: RECEIVE_ALERTS,
     alerts
@@ -12,7 +13,7 @@ export const receiveAlerts = alerts => {
 
 // Thunk actions
 export const requestAlerts = () => {
-  return dispatch => fetchAlerts().then(
+  return dispatch =>fetchAlerts().then(
     res => dispatch(receiveAlerts(res))
   )
 }

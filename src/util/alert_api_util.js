@@ -1,5 +1,5 @@
 const fetchAlerts = props => {
-  return fetch(`api/alerts`)
+  return fetch(`http://localhost:5000/api/alerts`)
     .then(res => {
       console.log('RES', res)
       return res.json()

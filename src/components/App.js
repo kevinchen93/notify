@@ -11,15 +11,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    requestAlerts()
+    this.props.requestAlerts()
   }
 
   render() {
-    const { alerts } = this.state 
-    console.log('REDUX', alerts)
+    if (!this.props.alerts) return <div></div>
     return (
       <div className="App">
-        <Modal alerts={alerts} />
+        <Modal alerts={this.props.alerts} />
         This is my app!
       </div>
     )
@@ -27,7 +26,13 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  alerts: state.alerts
+  alerts: state.entities.alerts
 })
 
-export default connect(mapStateToProps, null)(App)
+const mapDispatchToProps = dispatch => {
+  return {
+    requestAlerts: () => dispatch(requestAlerts()),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
