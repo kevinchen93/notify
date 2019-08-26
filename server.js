@@ -22,7 +22,7 @@ app.get('/api/alerts', (req,res) => {
   fetchAlerts()
     .then(alerts => {
     console.log('ALERTS', alerts)
-    return res.json({alerts: alerts})
+    return res.json(alerts)
   })
 })
 
