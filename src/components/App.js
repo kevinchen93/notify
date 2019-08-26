@@ -32,7 +32,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => {
   return {
     requestAlerts: () => dispatch(requestAlerts()),
-  };
-};
+  }
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
