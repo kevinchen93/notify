@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import Modal from './modal/Modal'
+import ModalContainer from './modal_container'
 import { requestAlerts } from '../actions/alert_actions'
 
 class App extends Component {
   state = {
     alerts: [],
-    showModal: false,
   }
 
   componentDidMount() {
@@ -18,8 +17,8 @@ class App extends Component {
     if (!this.props.alerts) return <div></div>
     return (
       <div className="App">
-        <Modal alerts={this.props.alerts} />
         This is my app!
+        <ModalContainer />
       </div>
     )
   }
@@ -29,10 +28,8 @@ const mapStateToProps = state => ({
   alerts: state.entities.alerts
 })
 
-const mapDispatchToProps = dispatch => {
-  return {
-    requestAlerts: () => dispatch(requestAlerts()),
-  }
-}
+const mapDispatchToProps = dispatch => ({
+  requestAlerts: () => dispatch(requestAlerts())
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(App)
