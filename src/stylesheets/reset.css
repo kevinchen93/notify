@@ -36,8 +36,7 @@ ol, ul {
 }
 a {
   text-decoration: none;
-  color: #f37321;
-  transition: 0s
+  transition: 0s;
 }
 blockquote, q {
 	quotes: none;
