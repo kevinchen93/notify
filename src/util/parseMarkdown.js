@@ -7,7 +7,6 @@ const parseMarkdown = markdown => {
 
   for (const line of markdownArray) {
     if (line.includes('###')) {
-      console.log('LINE', line)
       const info = line.split('### ')
       alert.push(info[1])
     } else if (alert.length === 4) {

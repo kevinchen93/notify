@@ -4,7 +4,6 @@ export const RECEIVE_ALERTS = 'RECEIVE_ALERTS'
 
 // Regular actions
 export const receiveAlerts = alerts => {
-  console.log('ALERTS', alerts)
   return {
     type: RECEIVE_ALERTS,
     alerts

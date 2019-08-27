@@ -7,7 +7,6 @@ import AlertModalContainer from './modals/alert_modal_container.jsx'
 import '../stylesheets/modal.scss'
 
 const Modal = (props) => {
-  console.log('MODALs PROPS', props)
   let component
   if (props.modal.component === 'show') {
     component = <AlertModalContainer modalProps={props.modal.modalProps} alerts={props.alerts} />

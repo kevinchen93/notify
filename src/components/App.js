@@ -12,8 +12,7 @@ class App extends Component {
   }
 
   handleModalClick = () => {
-    let func;
-    console.log('APP PROPS', this.props)
+    let func
     if (!this.props.isOpen) {
       func = () => {
         this.props.openModal()
