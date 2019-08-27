@@ -15,9 +15,3 @@ export const setModalComponent = component => {
     component
   }
 }
-export const setModalProps = props => {
-  return {
-    type: SET_MODAL_PROPS,
-    props
-  }
-}

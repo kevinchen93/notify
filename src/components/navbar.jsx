@@ -8,7 +8,6 @@ import husky from '../assets/husky.png'
 import '../stylesheets/navbar.scss'
 
 const Navbar = (props) => {
-  console.log('NAVBAR PROPS', props)
   return (
     <div className="navbar-container">
       <div className="navbar">

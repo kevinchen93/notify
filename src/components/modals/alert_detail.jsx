@@ -11,7 +11,6 @@ const AlertDetail = ({ toggleDetail, alert }) => {
   return (
     <div className="detail-wrapper slide">
       <div className="alert-detail">
-        
         <div className="back-button" onClick={() => toggleDetail()}></div>
         <h3>{alert.title}</h3>
         <div className="content">

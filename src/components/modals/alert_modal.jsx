@@ -8,6 +8,7 @@ class AlertModal extends Component {
   state = {
     detailView: false,
     selectedAlert: null,
+    readAlertsIds: []
   }
 
   componentDidMount() {
@@ -20,7 +21,6 @@ class AlertModal extends Component {
     } else {
       let colorClass
       let alerts = Array.from(this.props.alerts).map( (alert, i) => {
-        console.log('ALERT LABEL', alert.label)
         switch (alert.label) {
           case 'New': colorClass = ' blue'; break;
           case 'Improvements': colorClass = ' green'; break;
@@ -46,7 +46,6 @@ class AlertModal extends Component {
   }
 
   handleClickDetail(alert) {
-    console.log('WE ARE IN DETAIL')
     this.setState({
       detailView: true,
       selectedAlert: alert

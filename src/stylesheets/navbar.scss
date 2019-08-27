@@ -17,14 +17,21 @@
       color: #fff;
     }
     .icon-container {
-      line-height: 80px;
+      line-height: 77px;
+      padding: 0 5px;
+      border-bottom-color: #fff;
+      transition: 0.3s ease-in-out;
+      cursor: pointer;
+      &:hover {
+        border-bottom: 3px solid #fff;
+        background: rgba(255,255,255,0.1);
+      }
       .logo-image {
         height: 45px;
         width: 45px;
         border-radius: 100%;
         border: 3px solid #5bc2bf;
         vertical-align: middle;
-        cursor: pointer;
       }
     }
   }

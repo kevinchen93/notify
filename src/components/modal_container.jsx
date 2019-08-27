@@ -9,7 +9,7 @@ import '../stylesheets/modal.scss'
 const Modal = (props) => {
   let component
   if (props.modal.component === 'show') {
-    component = <AlertModalContainer modalProps={props.modal.modalProps} alerts={props.alerts} />
+    component = <AlertModalContainer alerts={props.alerts} />
   }
 
   return (
