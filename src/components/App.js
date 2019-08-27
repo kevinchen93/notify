@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import Navbar from './navbar'
 import ModalContainer from './modal_container'
 import { requestAlerts } from '../actions/alert_actions'
 
@@ -17,7 +18,7 @@ class App extends Component {
     if (!this.props.alerts) return <div></div>
     return (
       <div className="App">
-        This is my app!
+        <Navbar />
         <ModalContainer />
       </div>
     )

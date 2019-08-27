@@ -1,0 +1,13 @@
+* {
+  box-sizing: border-box;
+  transition: 0.25s ease-in-out;
+}
+body {
+  font-family: 'Comfortaa', Arial, sans-serif;
+}
+h1 {
+  margin: 0;
+  line-height: 48px;
+  font-size: 32px;
+  font-weight: 700;
+}
