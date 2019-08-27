@@ -11,3 +11,15 @@ h1 {
   font-size: 32px;
   font-weight: 700;
 }
+.blue {
+  background-color: #0656d9;
+}
+.pink {
+  background-color: #ff4772;
+}
+.green {
+  background-color: #6dc353;
+}
+.cyan {
+  background-color: #5bc2bf;
+}
