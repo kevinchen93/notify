@@ -8,6 +8,7 @@ import husky from '../assets/husky.png'
 import '../stylesheets/navbar.scss'
 
 const Navbar = (props) => {
+  console.log('NAVBAR PROPS', props)
   return (
     <div className="navbar-container">
       <div className="navbar">
@@ -18,7 +19,7 @@ const Navbar = (props) => {
             </h1>
           </Link>
         </div>
-        <div className="icon-container" onClick={() => { props.openModal(); props.setModalComponent('show') }}>
+        <div className="icon-container" onClick={() => { props.handleModalClick() }}>
           <img className="logo-image" src={husky} alt="husky" />
         </div>
       </div>
@@ -26,9 +27,13 @@ const Navbar = (props) => {
   )
 }
 
+const mapStateToProps = state => ({
+  isOpen: state.ui.modal.isOpen
+})
+
 const mapDispatchToProps = dispatch => ({
   openModal: () => dispatch(openModal()),
   setModalComponent: comp => dispatch(setModalComponent(comp)),
 })
 
-export default connect(null, mapDispatchToProps)(Navbar)
+export default connect(mapStateToProps, mapDispatchToProps)(Navbar)
