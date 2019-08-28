@@ -7,7 +7,7 @@
   background-color: rgba(0,0,0,0.30);
   color: #222c36;
   text-align: center;
-  z-index: 100;
+  z-index: 1000;
   &.hidden {
     pointer-events: none;
     opacity: 0;
