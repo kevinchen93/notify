@@ -3,16 +3,20 @@ import React, { Component } from 'react'
 import AlertDetail from './alert_detail'
 
 import '../../stylesheets/alerts.scss'
+import Cookies from 'universal-cookie'
 
 class AlertModal extends Component {
   state = {
     detailView: false,
     selectedAlert: null,
-    readAlertsIds: []
+    seenAlertsIds: []
   }
 
   componentDidMount() {
     this.props.requestAlerts()
+    this.setState({
+      seenAlertsIds: new Cookies().get('seenAlertsIds') || new Cookies().set('seenAlertIds', JSON.stringify(['Heeeey']))
+    })
   }
 
   renderAlerts() {
@@ -45,10 +49,17 @@ class AlertModal extends Component {
     }
   }
 
-  handleClickDetail(alert) {
+  handleClickDetail = (alert) => {
+    const cookies = new Cookies() 
+    console.log('BEFORE', cookies)
+    if (!cookies.get('seenAlertsIds').includes(alert.id)) {
+      cookies.get('seenAlertsIds').push(alert.id)
+    }
+    console.log('AFTER COOKIES', cookies)
     this.setState({
       detailView: true,
-      selectedAlert: alert
+      selectedAlert: alert,
+      seenAlertIds: cookies.get('seenAlertIds')
     })
   }
 

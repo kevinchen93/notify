@@ -6,11 +6,6 @@ import ModalContainer from './modal_container'
 import { openModal, setModalComponent, closeModal } from '../actions/ui_actions'
 
 class App extends Component {
-  state = {
-    alerts: [],
-    modalOpen: false
-  }
-
   handleModalClick = () => {
     let func
     if (!this.props.isOpen) {

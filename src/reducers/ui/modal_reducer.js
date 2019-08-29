@@ -1,9 +1,8 @@
-import { OPEN_MODAL, CLOSE_MODAL, SET_MODAL_COMPONENT, SET_MODAL_PROPS } from '../../actions/ui_actions'
+import { OPEN_MODAL, CLOSE_MODAL, SET_MODAL_COMPONENT } from '../../actions/ui_actions'
 
 const defaultState = {
   isOpen: false,
   component: 'show',
-  modalProps: {},
 }
 
 const modalReducer = ( state = defaultState, action ) => {
@@ -21,10 +20,6 @@ const modalReducer = ( state = defaultState, action ) => {
       const newState = Object.assign({}, state)
       newState.component = action.component 
       return newState 
-    case SET_MODAL_PROPS:
-      const propState = Object.assign({}, state)
-      propState.modalProps = action.props 
-      return propState
     default:
       return state
   }
