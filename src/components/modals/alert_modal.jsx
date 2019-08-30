@@ -9,13 +9,14 @@ class AlertModal extends Component {
   state = {
     detailView: false,
     selectedAlert: null,
-    seenAlertsIds: []
+    seenAlertIds: []
   }
 
   componentDidMount() {
     this.props.requestAlerts()
+    const cookies = new Cookies()
     this.setState({
-      seenAlertsIds: new Cookies().get('seenAlertsIds') || new Cookies().set('seenAlertIds', JSON.stringify(['Heeeey']))
+      seenAlertIds: cookies.get('seenAlertIds') || []
     })
   }
 
@@ -32,7 +33,7 @@ class AlertModal extends Component {
           default: colorClass = ' cyan';
         }
         return (
-          <div key={i} className="alert-item" onClick={() => this.handleClickDetail(alert)}>
+          <div key={i} className="alert-item" onClick={() => this.handleClickDetail(alert, i)}>
             <span className={"label" + colorClass}>{alert.label}</span>
             <span className="title">{alert.title}.</span>
             <span className="body">{alert.body}</span>
@@ -50,16 +51,15 @@ class AlertModal extends Component {
   }
 
   handleClickDetail = (alert) => {
-    const cookies = new Cookies() 
-    console.log('BEFORE', cookies)
-    if (!cookies.get('seenAlertsIds').includes(alert.id)) {
-      cookies.get('seenAlertsIds').push(alert.id)
+    let updatedArray
+    console.log('ALERT', alert)
+    if (!this.state.seenAlertIds.includes(alert.id)) {
+      updatedArray = [...this.state.seenAlertIds, parseInt(alert.id)]
     }
-    console.log('AFTER COOKIES', cookies)
     this.setState({
       detailView: true,
       selectedAlert: alert,
-      seenAlertIds: cookies.get('seenAlertIds')
+      seenAlertIds: updatedArray
     })
   }
 

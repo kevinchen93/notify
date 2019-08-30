@@ -11,6 +11,7 @@ const parseMarkdown = markdown => {
       alert.push(info[1])
     } else if (alert.length === 4) {
       alerts.push({
+        id: alert[3],
         title: alert[0],
         date: alert[1],
         label: alert[2],
