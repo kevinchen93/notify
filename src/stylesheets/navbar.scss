@@ -4,20 +4,20 @@
   left: 0;
   right: 0;
   height: 80px;
-  line-height: 80px;
   padding: 0 17px;
   background-color: #0656d9;
   box-shadow: 0 2px 4px -1px rgba(0,0,0,0.25);
   z-index: 999;
   .navbar {
     display: flex;
+    height: 80px;
     justify-content: space-between;
     align-items: center;
     h1 {
       color: #fff;
     }
     .icon-container {
-      line-height: 77px;
+      position: relative;
       padding: 0 5px;
       border-bottom-color: #fff;
       transition: 0.3s ease-in-out;
@@ -32,6 +32,19 @@
         border-radius: 100%;
         border: 3px solid #5bc2bf;
         vertical-align: middle;
+      }
+      .notification-number {
+        position: absolute;
+        height: 22px;
+        width: 22px;
+        top: -5px;
+        right: 0;
+        padding: 5px 7px;
+        border-radius: 50%;
+        background: #ff0000;
+        color: #fff;
+        font-size: 14px;
+        font-weight: 700;
       }
     }
   }
