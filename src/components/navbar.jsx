@@ -20,10 +20,8 @@ const Navbar = (props) => {
         </div>
         <div className="icon-container" onClick={() => { props.handleModalClick() }}>
           <img className="logo-image" src={husky} alt="husky" />
-          <div className="badge-wrapper">
-            <div className="lower-badge">
-              <div className="badge-number">3</div>
-            </div>
+          <div className="notification-count-wrapper">
+            <div className="notification-count">3</div>
           </div>
         </div>
       </div>
