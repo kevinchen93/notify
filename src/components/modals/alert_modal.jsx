@@ -3,21 +3,15 @@ import React, { Component } from 'react'
 import AlertDetail from './alert_detail'
 
 import '../../stylesheets/alerts.scss'
-import Cookies from 'universal-cookie'
 
 class AlertModal extends Component {
   state = {
     detailView: false,
     selectedAlert: null,
-    seenAlertIds: []
   }
 
   componentDidMount() {
     this.props.requestAlerts()
-    const cookies = new Cookies()
-    this.setState({
-      seenAlertIds: cookies.get('seenAlertIds') || []
-    })
   }
 
   renderAlerts() {
@@ -51,15 +45,10 @@ class AlertModal extends Component {
   }
 
   handleClickDetail = (alert) => {
-    let updatedArray
     console.log('ALERT', alert)
-    if (!this.state.seenAlertIds.includes(alert.id)) {
-      updatedArray = [...this.state.seenAlertIds, parseInt(alert.id)]
-    }
     this.setState({
       detailView: true,
       selectedAlert: alert,
-      seenAlertIds: updatedArray
     })
   }
 

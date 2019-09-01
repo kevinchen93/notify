@@ -15,6 +15,10 @@ class App extends Component {
 
   componentDidMount() {
     this.props.requestAlerts()
+    const cookies = new Cookies()
+    if (cookies.get('seenAlerts')) {
+      this.setState({ seenAlerts: true })
+    }
   }
 
   handleModalClick = () => {
@@ -26,7 +30,12 @@ class App extends Component {
       }
     } else {
       func = () => {
-        this.props.closeModal()
+        const cookies = new Cookies()
+        if (!cookies.get('seenAlerts')) {
+          cookies.set('seenAlerts', true, { path: '/' })
+        }
+        console.log('WE ARE HERE IN CLOSE MODAL')
+        this.setState({ seenAlerts: true }, () => this.props.closeModal())
       }
     }
     return func()
@@ -34,10 +43,11 @@ class App extends Component {
 
   render() {
     if (!this.props.alerts) return <div></div>
+    const notificationCount = this.state.seenAlerts ? 0 : this.props.alerts.length
     return (
       <div className="App">
-        <Navbar handleModalClick={this.handleModalClick} />
-        <ModalContainer />
+        <Navbar handleModalClick={this.handleModalClick} seenAlerts={this.state.seenAlerts} notificationCount={notificationCount} />
+        <ModalContainer handleModalClick={this.handleModalClick}/>
       </div>
     )
   }

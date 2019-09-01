@@ -8,6 +8,7 @@ import husky from '../assets/husky.png'
 import '../stylesheets/navbar.scss'
 
 const Navbar = (props) => {
+  console.log('NAVBAR PROPS', props)
   return (
     <div className="navbar-container">
       <div className="navbar">
@@ -20,8 +21,8 @@ const Navbar = (props) => {
         </div>
         <div className="icon-container" onClick={() => { props.handleModalClick() }}>
           <img className="logo-image" src={husky} alt="husky" />
-          <div className="notification-count-wrapper">
-            <div className="notification-count">3</div>
+          <div className={"notification-count-wrapper" + (props.seenAlerts ? " hidden" : "")}>
+            <div className="notification-count">{props.notificationCount}</div>
           </div>
         </div>
       </div>
