@@ -9,11 +9,11 @@ import '../stylesheets/modal.scss'
 const Modal = (props) => {
   let component
   if (props.modal.component === 'show') {
-    component = <AlertModalContainer alerts={props.alerts} />
+    component = <AlertModalContainer />
   }
 
   return (
-    <div className={"modal" + (props.modal.isOpen ? "" : " hidden")} onClick={props.closeModal}>
+    <div className={"modal" + (props.modal.isOpen ? "" : " hidden")} onClick={props.handleModalClick}>
       <div className="modal-content-container" onClick={(e) => { e.stopPropagation() }}>
         {component}
       </div>

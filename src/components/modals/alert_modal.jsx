@@ -8,7 +8,6 @@ class AlertModal extends Component {
   state = {
     detailView: false,
     selectedAlert: null,
-    readAlertsIds: []
   }
 
   componentDidMount() {
@@ -28,7 +27,7 @@ class AlertModal extends Component {
           default: colorClass = ' cyan';
         }
         return (
-          <div key={i} className="alert-item" onClick={() => this.handleClickDetail(alert)}>
+          <div key={i} className="alert-item" onClick={() => this.handleClickDetail(alert, i)}>
             <span className={"label" + colorClass}>{alert.label}</span>
             <span className="title">{alert.title}.</span>
             <span className="body">{alert.body}</span>
@@ -45,10 +44,11 @@ class AlertModal extends Component {
     }
   }
 
-  handleClickDetail(alert) {
+  handleClickDetail = (alert) => {
+    console.log('ALERT', alert)
     this.setState({
       detailView: true,
-      selectedAlert: alert
+      selectedAlert: alert,
     })
   }
 
