@@ -34,7 +34,6 @@ class App extends Component {
         if (!cookies.get('seenAlerts')) {
           cookies.set('seenAlerts', true, { path: '/' })
         }
-        console.log('WE ARE HERE IN CLOSE MODAL')
         this.setState({ seenAlerts: true }, () => this.props.closeModal())
       }
     }

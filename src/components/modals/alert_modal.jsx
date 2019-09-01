@@ -45,7 +45,6 @@ class AlertModal extends Component {
   }
 
   handleClickDetail = (alert) => {
-    console.log('ALERT', alert)
     this.setState({
       detailView: true,
       selectedAlert: alert,
